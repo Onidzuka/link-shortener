@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry'
 gem 'dry-transaction'
+gem 'dry-validation'
 gem 'rspec-rails'
 
 group :development, :test do
