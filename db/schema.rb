@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 2019_04_07_010636) do
   create_table "shortened_urls", force: :cascade do |t|
     t.string "original_url", null: false
     t.string "unique_key", null: false
+    t.string "access_token", null: false
     t.integer "views_count", default: 0, null: false
     t.datetime "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["access_token"], name: "index_shortened_urls_on_access_token", unique: true
     t.index ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true
   end
 
