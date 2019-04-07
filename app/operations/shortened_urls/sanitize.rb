@@ -5,9 +5,14 @@ module ShortenedUrls
     include Dry::Transaction::Operation
 
     def call(params)
-      sanitized_url = params[:original_url]
+      Success(sanitize(params))
+    end
 
-      Success(sanitized_url.strip.downcase)
+    private
+
+    def sanitize(params)
+      sanitized_url = params[:original_url]
+      sanitized_url.strip.downcase
     end
   end
 end
