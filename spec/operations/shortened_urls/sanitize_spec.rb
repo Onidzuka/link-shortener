@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe ShortenedUrls::Sanitize do
   describe '#call' do
+    expected_output = Hash[original_url: 'www.google.com']
+
     context 'when white spaces' do
       let(:params) { Hash[original_url: "   www.google.com  \n"] }
 
       it 'removes white spaces' do
-        expected_string = 'www.google.com'
-
-        expect(described_class.new.call(params).success).to eql(expected_string)
+        expect(described_class.new.call(params).success).to eql(expected_output)
       end
     end
 
@@ -16,9 +16,7 @@ RSpec.describe ShortenedUrls::Sanitize do
       let(:params) { Hash[original_url: "www.GOOGLE.com"] }
 
       it 'removes white spaces' do
-        expected_string = 'www.google.com'
-
-        expect(described_class.new.call(params).success).to eql(expected_string)
+        expect(described_class.new.call(params).success).to eql(expected_output)
       end
     end
   end

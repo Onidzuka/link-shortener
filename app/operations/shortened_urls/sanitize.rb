@@ -11,8 +11,7 @@ module ShortenedUrls
     private
 
     def sanitize(params)
-      sanitized_url = params[:original_url]
-      sanitized_url.strip.downcase
+      Hash[params.map { |key, value| [key, value.strip.downcase] } ]
     end
   end
 end
