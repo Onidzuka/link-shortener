@@ -1,0 +1,2 @@
+class LinkTranslatorsController < ApplicationController
+end

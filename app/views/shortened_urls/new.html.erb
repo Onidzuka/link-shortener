@@ -1,0 +1,10 @@
+<div class="w-full max-w-sm mx-auto mt-32">
+  <%= form_for shortened_url, html: { class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' } do |f| %>
+    <div class="mb-4">
+      <%= f.text_field :original_url, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline', placeholder: 'Paste a url' %>
+    </div>
+    <div class="flex items-center justify-between">
+      <%= f.submit 'Shorten', class: 'bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    </div>
+  <% end %>
+</div>

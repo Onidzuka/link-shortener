@@ -1,0 +1,21 @@
+<div class="pt-32">
+
+  <div class="bg-teal-lightest border-t-4 border-teal rounded-b text-teal-darkest px-4 py-3 shadow-md mb-4" role="alert">
+    <div class="flex">
+      <div>
+        <p class="font-bold">Shortened url</p>
+
+        <%= link_to link_translator_url(shortened_url.unique_key), link_translator_url('hey') %>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-teal-lightest border-t-4 border-teal rounded-b text-teal-darkest px-4 py-3 shadow-md mb-4" role="alert">
+    <div class="flex">
+      <div>
+        <p class="font-bold">Admin url</p>
+        <%= link_to edit_shortened_url_url(shortened_url), edit_shortened_url_url(shortened_url) %>
+      </div>
+    </div>
+  </div>
+</div>
