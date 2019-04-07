@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry'
 gem 'dry-transaction'
 gem 'dry-validation'
+gem 'dry-container'
 gem 'rspec-rails'
 
 group :development, :test do

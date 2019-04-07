@@ -269,6 +269,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  dry-container
   dry-transaction
   dry-validation
   factory_bot_rails
