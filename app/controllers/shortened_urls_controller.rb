@@ -6,7 +6,7 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def create
-    CreateShortenedUrl.new.call(permitted_params.to_h) do |m|
+    CreateShortenedUrl.new.call(create_params.to_h) do |m|
       m.success do |shortened_url_object|
         redirect_to shortened_url_url(shortened_url_object)
       end
@@ -29,9 +29,21 @@ class ShortenedUrlsController < ApplicationController
     render :edit, locals: { shortened_url: shortened_url }
   end
 
+  def update
+    shortened_url = ShortenedUrl.find(params[:id])
+
+    if shortened_url.update(update_params)
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
-  def permitted_params
+  def create_params
     params.require(:shortened_url).permit(:original_url)
+  end
+
+  def update_params
+    params.require(:shortened_url).permit(:expires_at)
   end
 end

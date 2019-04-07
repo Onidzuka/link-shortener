@@ -14,7 +14,7 @@
     <div class="flex">
       <div>
         <p class="font-bold">Admin url</p>
-        <%= link_to admin_url(shortened_url.access_token), admin_url(shortened_url.access_token) %>
+        <%= link_to admin_url(shortened_url.access_token), admin_url(shortened_url.access_token), data: { turbolinks: false } %>
       </div>
     </div>
   </div>
