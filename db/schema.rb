@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_07_010636) do
   create_table "shortened_urls", force: :cascade do |t|
     t.string "original_url", null: false
     t.string "unique_key", null: false
+    t.integer "views_count", default: 0, null: false
     t.datetime "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
