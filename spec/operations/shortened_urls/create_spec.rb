@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ShortenedUrls::Create do
   let(:params)    { Hash[original_url: 'www.google.com'] }
-  let(:generator) { double(:generator, generate: 'q5cyy') }
+  let(:generator) { double(:generator, call: 'q5cyy') }
 
   describe '#call' do
     it 'creates a record' do
@@ -16,7 +16,7 @@ RSpec.describe ShortenedUrls::Create do
     end
 
     it 'passes string length to generator' do
-      expect(generator).to receive(:generate).with(5)
+      expect(generator).to receive(:call).with(5)
 
       described_class.new(generator).call(params)
     end

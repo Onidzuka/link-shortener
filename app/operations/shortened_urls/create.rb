@@ -19,7 +19,7 @@ module ShortenedUrls
     private
 
     def unique_key
-      self.generator.generate(STRING_LENGTH)
+      self.generator.call(STRING_LENGTH)
     end
   end
 end
