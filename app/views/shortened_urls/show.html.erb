@@ -14,7 +14,7 @@
     <div class="flex">
       <div>
         <p class="font-bold">Admin url</p>
-        <%= link_to edit_shortened_url_url(shortened_url), edit_shortened_url_url(shortened_url) %>
+        <%= link_to admin_url(shortened_url.access_token), admin_url(shortened_url.access_token) %>
       </div>
     </div>
   </div>

@@ -18,9 +18,15 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def show
-    shortened_url =  ShortenedUrl.find(params[:id])
+    shortened_url = ShortenedUrl.find(params[:id])
 
     render :show, locals: { shortened_url: shortened_url }
+  end
+
+  def edit
+    shortened_url = ShortenedUrl.find_by_access_token!(params[:access_token])
+
+    render :edit, locals: { shortened_url: shortened_url }
   end
 
   private
