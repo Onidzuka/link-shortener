@@ -4,22 +4,8 @@ module ShortenedUrls
   class Create
     include Dry::Transaction::Operation
 
-    STRING_LENGTH = 5.freeze
-
-    attr_accessor :generator
-
-    def initialize(string_generator)
-      self.generator = string_generator
-    end
-
-    def call(input)
-      Success(ShortenedUrl.create!(input.merge({unique_key: unique_key})))
-    end
-
-    private
-
-    def unique_key
-      self.generator.call(STRING_LENGTH)
+    def call(params)
+      Success(ShortenedUrl.create!(params))
     end
   end
 end
