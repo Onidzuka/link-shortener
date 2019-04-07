@@ -9,9 +9,9 @@ module ShortenedUrls
     def call(params)
       begin
         unique_key = generate_random_string
-      end while ShortenedUrl.find_by_unique_key unique_key
+      end while ShortenedUrl.find_by_unique_key(unique_key)
 
-      Success(params.merge({unique_key: generate_random_string}))
+      Success(params.merge({unique_key: unique_key}))
     end
 
     private

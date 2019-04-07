@@ -9,6 +9,6 @@ RSpec.feature 'Create shortened link', type: :feature do
     click_button 'Shorten'
 
     expect(page).to have_link(link_translator_url(ShortenedUrl.last.reload.unique_key))
-    expect(page).to have_link(edit_shortened_url_url(ShortenedUrl.last))
+    expect(page).to have_link(admin_url(ShortenedUrl.last.access_token))
   end
 end

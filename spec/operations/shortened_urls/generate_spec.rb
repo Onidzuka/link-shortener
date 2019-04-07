@@ -15,7 +15,7 @@ RSpec.describe ShortenedUrls::Generate do
 
     context 'when unique key exists' do
       before do
-        create(:shortened_url) { create(:shortened_url, unique_key: '55555') }
+        create(:shortened_url) { create(:shortened_url, unique_key: '55555', access_token: '12345') }
       end
 
       it 'generates key again' do
