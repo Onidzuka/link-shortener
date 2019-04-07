@@ -10,5 +10,13 @@ RSpec.describe 'Link translator' do
 
       expect(shortened_url.reload.views_count).to eql(1)
     end
+
+    context 'when link expired' do
+      let(:shortened_url) { create(:shortened_url, expires_at: Date.yesterday) }
+
+      it 'redirects to 404 page' do
+        expect{ get endpoint_url }.to raise_error(ActionController::RoutingError)
+      end
+    end
   end
 end
